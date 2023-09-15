@@ -30,7 +30,7 @@ let handleUserLogin = (email, password) => {
                 //user already exist
 
                 let user = await db.User.findOne({
-                    attributes: ['id','email', 'roleId', 'password', 'firstName', 'lastName'],
+                    attributes: ['id','email', 'roleid', 'password', 'firstName', 'lastName'],
                     where: { email: email },
                     raw: true
                 });
@@ -79,7 +79,7 @@ let checkUserEmail = (email) => {
     return new Promise(async (resolve, reject) => {
         try {
             let user = await db.User.findOne({
-                attributes: ['email', 'roleId', 'password'],
+                attributes: ['email', 'roleid', 'password'],
 
                 where: { email: email },
 
